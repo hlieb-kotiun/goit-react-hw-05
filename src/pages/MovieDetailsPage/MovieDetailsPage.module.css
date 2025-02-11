@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.img {
+  width: 500px;
+  height: 280px;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 600px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid grey;
+}
+
+.link {
+  font-size: 20px;
+}
