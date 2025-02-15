@@ -7,6 +7,7 @@ const MoviesPage = () => {
   const [movieName, setMovieName] = useSearchParams();
   const [userFilms, setUserFilms] = useState([]);
   const movie = movieName.get("query") || "";
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const response = async () => {
@@ -14,7 +15,10 @@ const MoviesPage = () => {
         const films = await searchMovieByName(movie);
         setUserFilms(films.data.results);
       } catch (error) {
+        setLoader(false);
         console.log(error);
+      } finally {
+        setLoader(false);
       }
     };
     response();
@@ -29,7 +33,7 @@ const MoviesPage = () => {
     form.reset();
   };
 
-  if (!userFilms) {
+  if (loader) {
     return <h2>Loading...</h2>;
   }
 
