@@ -1,6 +1,6 @@
 import { data, Outlet, useParams, useLocation } from "react-router-dom";
 import fetchMovieDetails from "../../components/services/fetch-movie-data";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import s from "./MovieDetailsPage.module.css";
 import { Link, NavLink } from "react-router-dom";
 
@@ -8,7 +8,6 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [user, setUser] = useState(null);
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     const data = async () => {
