@@ -1,0 +1,31 @@
+.form {
+  margin-bottom: 20px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  display: block;
+  width: 240px;
+  height: 38px;
+  padding: 10px 0;
+  padding-left: 40px;
+  border: 1px solid rgb(202, 35, 35);
+  outline: none;
+  border-radius: 3px;
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
