@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { getTrendingMovies } from "../../tmbd-api";
 import s from "./HomePage.module.css";
 import { useLocation } from "react-router-dom";
+import { SyncLoader } from "react-spinners";
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
@@ -28,7 +29,7 @@ const HomePage = () => {
   return (
     <div className="films-container">
       {films.length > 0 && <h1 className={s.title}>Trending movies</h1>}
-      {loader && <h2>Loading...</h2>}
+      {loader && <SyncLoader className="loader" color="rgb(202, 35, 35" />}
       {films.length === 0 ? (
         <h3>There is no films yet!</h3>
       ) : (

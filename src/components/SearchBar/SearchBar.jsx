@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { IoIosSearch } from "react-icons/io";
 import s from "./SearchBar.module.css";
+import toast from "react-hot-toast";
 
 const SearchBar = ({ handleSetQuery }) => {
   const initValues = {
@@ -8,6 +9,9 @@ const SearchBar = ({ handleSetQuery }) => {
   };
 
   const handleSubmit = (values, actions) => {
+    if (values.query.trim() === "") {
+      return toast.error("Please fill the field");
+    }
     handleSetQuery(values.query);
     actions.resetForm();
   };

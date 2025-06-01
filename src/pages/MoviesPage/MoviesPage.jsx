@@ -3,10 +3,11 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { getMovieWithQuery } from "../../tmbd-api";
 import MovieList from "../../components/MovieList/MovieList";
+import { SyncLoader } from "react-spinners";
 
 const MoviesPage = () => {
   const [films, setFilms] = useState([]);
-  // const [page, setPage] = useState(1);
+  const [loader, setLoader] = useState(false);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
@@ -15,12 +16,13 @@ const MoviesPage = () => {
     if (!query) return;
     const fetchFilms = async () => {
       try {
+        setLoader(true);
         const { data } = await getMovieWithQuery(query);
         setFilms(data.results);
       } catch (error) {
         console.log(error);
       } finally {
-        console.log("finally");
+        setLoader(false);
       }
     };
     fetchFilms();
@@ -36,7 +38,13 @@ const MoviesPage = () => {
     <div className="films-container">
       <SearchBar handleSetQuery={handleSetQuery} />
       {films.length === 0 && <h2>Find a Movie!</h2>}
-      <MovieList location={location} films={films} />
+      {loader && <SyncLoader className="loader" color="rgb(202, 35, 35" />}
+
+      {films.length > 0 ? (
+        <MovieList location={location} films={films} />
+      ) : (
+        <p>There is no films matching your request! </p>
+      )}
     </div>
   );
 };

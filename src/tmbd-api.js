@@ -24,11 +24,24 @@ export const getMovieWithQuery = async (query) => {
   return result;
 };
 export const getMovieDetails = async (id) => {
-  console.log(id);
-
   const film = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
     options
   );
   return film;
+};
+export const getMovieCredits = async (id) => {
+  const credits = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
+    options
+  );
+  return credits;
+};
+
+export const getMovieReviews = async (id) => {
+  const reviews = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`,
+    options
+  );
+  return reviews;
 };

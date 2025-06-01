@@ -1,0 +1,24 @@
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+
+.cardWrapper {
+  border: 1px solid darkgray;
+  border-radius: 4px;
+}
+
+.imgWrapper {
+  width: 250px;
+  height: 375px;
+}
+
+.img {
+  width: 100%;
+}
+
+.name {
+  margin: 20px 14px;
+}
