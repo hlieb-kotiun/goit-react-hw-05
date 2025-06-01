@@ -4,7 +4,8 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 const options = {
   headers: {
-    Authorization: `Bearer ${API_KEY}`,
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNDUwZWFlNDc5YzQ1ZTIwZWE4ZjE4Njc5MWEzMTI3MiIsIm5iZiI6MTczOTExMzM3Ni41NDQsInN1YiI6IjY3YThjM2EwMDhkZmY5MDMxOGYxMTQxOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p5mgGuEofmztGhSVDRnQ3eKWsukewc8PCN-n1rgp5ZU",
   },
 };
 
